@@ -1,0 +1,74 @@
+# docker-compose.yml
+#
+# % podman compose up --build
+# or
+# % podman compose up -d
+# or
+# $ docker-compose up -d
+# $ docker compose up -d
+#
+
+services:
+  db:
+    restart: always
+    image: docker.io/library/mariadb:latest
+    container_name: 'db'
+    build: ./docker/db
+    tty: true
+    environment:
+      MYSQL_DATABASE: 'polls'
+      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MARIADB_DATABASE: 'polls'
+      MARIADB_ROOT_PASSWORD: 'password'
+      MARIADB_USER: 'user'
+      MARIADB_PASSWORD: 'password'
+      TZ: 'Asia/Tokyo'
+    ports:
+      - 3306:3306
+    volumes:
+      - db:/var/lib/mysql
+      - ./docker/db/initdb.d:/docker-entrypoint-initdb.d
+    networks:
+      - local-net
+
+  phpmyadmin:
+    image: docker.io/library/phpmyadmin:latest
+    container_name: "phpmyadmin"
+    environment:
+      MYSQL_USERNAME: 'root'
+      MYSQL_ROOT_PASSWORD: 'password'
+      TZ: 'Asia/Tokyo'
+    restart: always
+    ports:
+      - 8080:80
+    volumes:
+      - /sessions
+    depends_on:
+      - "db"
+    networks:
+      - local-net
+
+  api:
+    container_name: "api"
+    depends_on:
+      - "db"
+    build: ./docker/api
+    environment:
+      TZ: Asia/Tokyo
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./diangotutorial:/usr/src/server
+    networks:
+      - local-net
+
+networks:
+  local-net:
+    driver: bridge
+
+volumes:
+  api:
+  phpmyadmin:
+  db:
