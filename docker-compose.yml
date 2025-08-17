@@ -60,7 +60,7 @@ services:
     ports:
       - "8888:8888"
     volumes:
-      - ./diangotutorial:/usr/src/server
+      - ./djangotutorial:/usr/src/server
     networks:
       - local-net
 
