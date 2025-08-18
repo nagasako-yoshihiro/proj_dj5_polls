@@ -1,0 +1,25 @@
+<!-- djangotutorial/polls/templates/polls/results.html -->
+{% extends "polls/base.html" %}
+{% load static %}
+{% block css %}
+{% endblock %}
+
+{% block content %}
+<div>You're looking at the results of question: {{ question.question_text }}</div>
+<div>Results:
+  {% for choice in choices %}
+  <div>{{ choice.choice_text}}: {{ choice.votes}}</div>
+  {% endfor %}
+</div>
+{% endblock %}
+
+{% block footer %}
+  <a href="{% url 'polls:index' %}">Home</a>
+{% endblock %}
+
+{% block script %}
+<script>
+    $(document).ready(function () {
+    }); /* end of $(document).ready(function () */
+</script>
+{% endblock %}

@@ -21,8 +21,10 @@ def detail(request: HttpRequest, question_id: int) -> HttpResponse:
 
 
 def results(request: HttpRequest, question_id: int) -> HttpResponse:
-    response = "You're looking at the results of question %s."
-    return HttpResponse(response % question_id)
+    question = get_object_or_404(Question, pk=question_id)
+    choices = Choice.objects.filter(question=question).order_by('-votes')
+    context = {"question": question, "choices": choices}
+    return render(request, "polls/results.html", context)
 
 
 def vote(request: HttpRequest, question_id: int) -> HttpResponse:

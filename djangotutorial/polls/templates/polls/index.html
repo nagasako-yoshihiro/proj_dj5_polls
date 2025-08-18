@@ -1,4 +1,10 @@
 <!-- djangotutorial/polls/templates/polls/index.html -->
+{% extends "polls/base.html" %}
+{% load static %}
+{% block css %}
+{% endblock %}
+
+{% block content %}
 <p>Polls app</p>
 {% if latest_question_list %}
 <ul>
@@ -9,3 +15,11 @@
 {% else %}
 <p>No polls are available.</p>
 {% endif %}
+{% endblock %}
+
+{% block script %}
+<script>
+    $(document).ready(function () {
+    }); /* end of $(document).ready(function () */
+</script>
+{% endblock %}
