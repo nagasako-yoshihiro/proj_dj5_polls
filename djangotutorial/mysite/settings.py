@@ -132,6 +132,7 @@ LANGUAGE_CODE = 'ja'
 TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
+USE_L10N = True
 
 USE_TZ = True
 
@@ -148,3 +149,14 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LANGUAGES = [
+    ('ja', 'Japanese'),
+    ('en', 'English'),
+    ('ko', 'Korean'),
+    ('zh-hans', 'Simplified Chinese'),
+    ('zh-hant', 'Traditional Chinese'),
+    ('vi', 'Vietnamese'),
+]
+
+LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]

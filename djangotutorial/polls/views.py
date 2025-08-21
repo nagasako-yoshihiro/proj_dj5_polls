@@ -6,6 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.http import HttpRequest
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
+from django.utils.translation import gettext_lazy
 from .models import Choice, Question
 
 
@@ -33,12 +34,13 @@ def vote(request: HttpRequest, question_id: int) -> HttpResponse:
         selected_choice = question.choice_set.get(pk=request.POST["choice"])
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
+        msg: str = gettext_lazy("You didn't select a choice.")
         return render(
             request,
             "polls/detail.html",
             {
                 "question": question,
-                "error_message": "You didn't select a choice.",
+                "error_message": msg,
             },
         )
     else:

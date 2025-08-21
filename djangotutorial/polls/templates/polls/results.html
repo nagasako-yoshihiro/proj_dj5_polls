@@ -6,8 +6,9 @@
 {% endblock %}
 
 {% block content %}
-<div>You're looking at the results of question: {{ question.question_text }}</div>
-<div>Results:
+<div>{% trans "You're looking at the results of question: " %}
+  {{ question.question_text }}</div>
+<div>{% trans "Results" %}:
   {% for choice in choices %}
   <div>{{ choice.choice_text}}: {{ choice.votes}}</div>
   {% endfor %}

@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-<p>Polls app</p>
+<p>{% trans "Polls app" %}</p>
 {% if latest_question_list %}
 <ul>
   {% for question in latest_question_list %}
@@ -14,7 +14,7 @@
   {% endfor %}
 </ul>
 {% else %}
-<p>No polls are available.</p>
+<p>{% trans "No polls are available." %}</p>
 {% endif %}
 {% endblock %}
 
