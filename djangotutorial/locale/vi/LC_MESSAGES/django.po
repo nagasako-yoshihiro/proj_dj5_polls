@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-21 14:51+0900\n"
+"POT-Creation-Date: 2025-08-21 15:42+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,22 +18,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: polls/templates/polls/base.html:54
+msgid "LANGUAGE_CODE is"
+msgstr "LANGUAGE_CODE: "
+
 #: polls/templates/polls/index.html:9
 msgid "Polls app"
-msgstr ""
+msgstr "cuộc thăm dò ý kiến ứng dụng"
 
 #: polls/templates/polls/index.html:17
 msgid "No polls are available."
-msgstr ""
+msgstr "Không có cuộc thăm dò ý kiến"
 
 #: polls/templates/polls/results.html:9
 msgid "You're looking at the results of question: "
-msgstr ""
+msgstr "Bạn đang xem kết quả của câu hỏi"
 
 #: polls/templates/polls/results.html:11
 msgid "Results"
-msgstr ""
+msgstr "Kết quả"
 
 #: polls/views.py:37
 msgid "You didn't select a choice."
-msgstr ""
+msgstr "Bạn đã không chọn một lựa chọn."

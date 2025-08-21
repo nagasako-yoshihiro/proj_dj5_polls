@@ -51,11 +51,7 @@
           {% endfor %}
         </select>
       </form>
-      {% if LANGUAGE_CODE == 'ja' %}
-      <div>現在の LANGUAGE_CODE は {{ LANGUAGE_CODE }} です</div>
-      {% else %}
-      <div>LANGUAGE_CODE is {{ LANGUAGE_CODE }}</div>
-      {% endif %}
+      <div>{% trans "LANGUAGE_CODE is" %} {{ LANGUAGE_CODE }}</div>
       {% block header %}{% endblock %}
     </div>
     <div class="content">
